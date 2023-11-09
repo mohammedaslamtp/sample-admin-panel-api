@@ -27,14 +27,12 @@ module.exports = {
             .findOne({ $or: [{ email: data.username }, { username: data.username }] })
             .then((result) => {
               if (result) {
-                console.log("going to bcrypt: ", result);
                 bcrypt.compare(data.password, result.password, (err, bcryptResult) => {
                   if (err) {
                     // bcryption error
                     console.log("bcryption error try again");
                   } else {
                     if (bcryptResult) {
-                      console.log('bcrypt success', bcryptResult);
                       const adminData = {
                         username: result.username,
                         full_name: result.full_name,
