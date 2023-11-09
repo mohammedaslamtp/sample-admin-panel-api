@@ -34,6 +34,7 @@ module.exports = {
                     console.log("bcryption error try again");
                   } else {
                     if (bcryptResult) {
+                      console.log('bcrypt success', bcryptResult);
                       const adminData = {
                         username: result.username,
                         full_name: result.full_name,
@@ -50,6 +51,7 @@ module.exports = {
                         }
                       );
 
+                      response.data = {}
                       response.data.accessToken = accessToken;
                       response.authentication = true;
                       response.status = 200;
