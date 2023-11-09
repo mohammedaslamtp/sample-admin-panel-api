@@ -196,6 +196,8 @@ module.exports = {
                         expiresIn: "10m"
                       });
 
+
+                      response.data = {};
                       response.data.accessToken = accessToken;
                       response.data.id = result._id;
                       response.authentication = true;
